@@ -24,10 +24,11 @@ margin-bottom: 10px;margin-top: 10px;}
 .gs1_list img{width:80%;margin: auto;display: block;}
 /*goodslist.html 布局*/
 .goods{width:100%;}
-.goods_card{float: left;margin-bottom: 0;width:44%;margin:20px 11px}
-.goods_card span{display: inline-block;background:#000;color:#fff;font-size: 12px;padding:0 2px}
+.goods_card{float: left;margin-bottom: 0;width:44%;margin:20px 11px;position: relative;}
+.goods_button{background:deepskyblue;text-align:center;color:#fff;font-size: 12px;height:28px;
+line-height: 24px;width:42px;position: absolute;bottom:12px;right:6px;}
 .goods_card p{width:130px;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
-.goods_card a{padding-right: 5px;}
+.goods_card a{}
 /*me.html样式*/
 .me_top{width:100%;height:150px;background:url(../img/e7458886.user-non-login-bg.png) no-repeat;
 background-size: cover;position: relative;border-bottom: 1px solid #ebebec}
@@ -57,3 +58,7 @@ background-size: cover;position: relative;border-bottom: 1px solid #ebebec}
 .search_box1 dl{width:33%;float: left;text-align: center;margin-button:20px;}
 .search_box1 h4{font-size: 14px;color:#585c64;margin-bottom: 20px;}
 .search_box1 img{height:45px;display: block;margin: auto;margin-bottom: 8px;}
+
+/*order.html*/
+.or_div{position: absolute;top:55px;right:-15px;width:200px;height:30px}
+.or_div a{margin-left: 30px;}

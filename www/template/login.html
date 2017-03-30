@@ -1,0 +1,33 @@
+<ion-view title="登录">
+	<ion-nav-buttons>
+		<button class="button button-clear" ng-click="goback()">
+			<i class="icon ion-ios-arrow-left"></i>
+		</button>
+	</ion-nav-buttons>
+	<ion-content>
+		<div class="login_top">
+			
+			<img src="../img/4db8eb5c.logo.png"/>
+			
+		</div>
+		<div class="list list-inset">
+		  <label class="item item-input">
+		  	<i style="font-size: 24px;min-width: 30px;" class="icon ion-ios-person placeholder-icon"></i>
+		    <input type="text" placeholder="请输入手机号或邮箱" ng-model="$parent.user">
+		  </label>
+		  <label class="item item-input ">
+		  	<i style="font-size: 24px;min-width: 30px;" class="icon ion-ios-locked placeholder-icon"></i>
+		    <input type="text" placeholder="请输入密码" ng-model="$parent.psd">
+		  </label>
+		</div>
+		<div class="login_btn">
+			
+				<button class="button button-full button-assertive" ng-click="dltap()">
+			 		 登录
+				</button>
+			
+			<span class="login_sp1"><a href="#/tab/register">免费注册</a></span>
+			<span class="login_sp2"><a href="">忘记密码？</a></span>
+		</div>
+	</ion-content>
+</ion-view>

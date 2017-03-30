@@ -1,0 +1,30 @@
+<ion-view title="注册">
+	<ion-nav-buttons>
+		<button class="button button-clear" ng-click="goback()">
+			<i class="icon ion-ios-arrow-left"></i>
+		</button>
+	</ion-nav-buttons>
+	<ion-content>
+		<div class="list list-inset">
+		  <label class="item item-input">
+		  	<i style="font-size: 14px;min-width: 60px;">手机号</i>
+		    <input type="text" placeholder="请输入手机号" ng-change="tes()" 
+		    	ng-model="$parent.r_phone" style="padding-right: 0;">
+		    <span id="r_show" style="font-size: 12px;"></span>
+		  </label>
+		  <label class="item item-input ">
+		  	<i style="font-size: 14px;min-width: 60px;">密码</i>
+		    <input type="text" placeholder="请输入密码" ng-change = "tes1()" 
+		    	ng-model = "$parent.r_sub" style="padding-right: 0;">
+		    <span id="sub_show" style="font-size: 12px;"></span>
+		  </label>
+		</div>
+		<div class="login_btn">
+			<button class="button button-full button-assertive" ng-click="zctap()">
+			 	 注册
+			</button>
+			
+			<span class="login_sp2">已有账号？<a href="#/tab/login">登录</a></span>
+		</div>
+	</ion-content>
+</ion-view>

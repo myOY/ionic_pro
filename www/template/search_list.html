@@ -1,0 +1,14 @@
+<ion-view title="分类">
+	<ion-content>
+		<div class="search_box">
+				<div class="search_box1" ng-repeat="sh in hs">
+					<h4>{{sh.h4}}</h4>
+					<dl ng-repeat = "dl in sh.dls">
+						<dt><img ng-src={{dl.img}} /></dt>
+						<dd>{{dl.dd}}</dd>
+					</dl>
+					
+				</div>
+			</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,23 @@
+<ion-view title={{tit}}>
+	<ion-nav-buttons>
+		<button class="button button-clear" ng-click="goback()">
+			<i class="icon ion-ios-arrow-left"></i>
+		</button>
+	</ion-nav-buttons>
+	<ion-content>
+		<div class="goods">
+			<div class="list card goods_card" ng-repeat="li5 in list5">
+				<div class="item item-body">
+				    <img class="full-image" ng-src={{li5.img}}>
+				    <p>{{li5.p}}</p>
+				    <p>
+				      <a class="subdued">{{li5.price1}}</a>
+				      <a class="subdued">{{li5.price2}}</a>
+				      <span>{{li5.span}}</span>
+				    </p>
+				  </div>
+			</div>
+		</div>
+	</ion-content>
+	
+</ion-view>

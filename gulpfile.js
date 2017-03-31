@@ -6,6 +6,7 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var imagemin = require("gulp-imagemin");
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -49,3 +50,14 @@ gulp.task('git-check', function(done) {
   }
   done();
 });
+gulp.task("imagemin",function(){
+	return gulp.src(["www/img/**/*.jpg","www/img/**/*.png"])
+						.pipe(imagemin())
+						.pipe(gulp.dest("www/disk/images"))
+})
+gulp.task("minfycss",function(){
+	return gulp.src("www/css/*.css")
+					.pipe(minifyCss())
+					.pipe(gulp.dest("www/disk/css"))
+					
+})

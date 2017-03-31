@@ -31,6 +31,7 @@ angular.module('starter', ['ionic'])
 		})
 		.state('tabs.goodslist',{
 			url:'/goodslist/:key',
+			
 			views:{
 				'tab-home':{
 					templateUrl:'template/goodslist.html',
@@ -59,9 +60,11 @@ angular.module('starter', ['ionic'])
 		})
 		.state('tabs.order',{
 			url:'/order',
+			cache:false,
 			views:{
 				'tab-order':{
-					templateUrl:'template/order.html'
+					templateUrl:'template/order.html',
+					controller:'order_ctrl'
 				}
 			}
 		})
@@ -120,7 +123,7 @@ angular.module('starter', ['ionic'])
 	$http({
 		url:'lists.json'
 	}).success(function(data){
-		console.log(data)
+		//console.log(data)
 		switch($stateParams.key){
 			case "0":
 			$scope.list5 = data.list5;
@@ -134,6 +137,18 @@ angular.module('starter', ['ionic'])
 		}
 		
 	})
+	
+	$scope.add=function(key){
+		var storage=window.localStorage;
+		var data = {
+			_gimg:$scope.list5[key].img,
+			_gname:$scope.list5[key].p,
+			_gprice:$scope.list5[key].price1
+		};
+		var d = JSON.stringify(data);
+		storage.setItem(key,d);
+//		console.log(d)
+	}
 })
 .controller("search_list_ctrl",function($scope,$http,$stateParams){
 	$http({
@@ -192,10 +207,14 @@ angular.module('starter', ['ionic'])
 				//$log.info($scope.r_phone)
 				if(!(/^1[34578]\d{9}$/.test($scope.r_phone))){
 				r_show.textContent="请输入正确的手机号码";
-				r_show.style.color="red"
+				r_show.style.color="red";
+				$scope.zctap = function(){
+				alert("账号或密码不合法")
+				}
 			}else{
 				r_show.textContent="账号可用";
-				r_show.style.color="green"
+				r_show.style.color="green";
+				
 			}
 		}
 	$scope.tes1 = function(){
@@ -203,14 +222,30 @@ angular.module('starter', ['ionic'])
 		
 		if(!(/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,10}$/.test($scope.r_sub))){
 			sub_show.textContent = "密码由6-10位字母和数字组成"
-			sub_show.style.color='red'
+			sub_show.style.color='red';
+			$scope.zctap = function(){
+				alert("账号或密码不合法")
+				}
 		}else{
 			sub_show.textContent = "密码可用"
-			sub_show.style.color='green'
+			sub_show.style.color='green';
+			$scope.zctap = function(){
+				window.localStorage.setItem($scope.r_phone, $scope.r_sub);
+				alert("注册成功")
+				}
 		}
 	};
-	$scope.zctap = function(){
-		window.localStorage.setItem($scope.r_phone, $scope.r_sub);
-	}
 	
+	
+})
+.controller("order_ctrl",function($scope){//获取本地存数的数据
+ 		$scope.arr = new Array();
+		var storage = window.localStorage;
+		for(var i =0;i<storage.length;i++){
+			var key = storage.key(i);
+			var value= storage.getItem(key);
+			$scope.arr.push(JSON.parse(value));
+			//console.log(key)
+		}
+		console.log($scope.arr);
 })

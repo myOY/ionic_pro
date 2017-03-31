@@ -6,14 +6,14 @@
 	</ion-nav-buttons>
 	<ion-content>
 		<div class="goods">
-			<div class="list card goods_card" ng-repeat="li5 in list5">
+			<div class="list card goods_card" ng-repeat="(key,li5) in list5">
 				<div class="item item-body">
 				    <img class="full-image" ng-src={{li5.img}}>
 				    <p>{{li5.p}}</p>
 				    <p>
 				      <a class="subdued">{{li5.price1}}</a>
 				      <a class="subdued" style="text-decoration: line-through; ">{{li5.price2}}</a>
-				      <button class="goods_button" ng-click="add()">购买</button>
+				      <button class="goods_button" ng-click="add(key)">购买</button>
 				    </p>
 				  </div>
 			</div>
